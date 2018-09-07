@@ -1,31 +1,36 @@
+enum Model 
+{ 
+    Model25, Model50Quarter, Model50Coin; 
+} 
 public class GumballMachine
 {
 
     private int num_gumballs;
     private boolean has_quarter;
-    private int model;
+    private Model m;
     private int total;
 
-    public GumballMachine( int size, int model )
+    public GumballMachine( int size, Model m )
     {
         // initialise instance variables
         this.num_gumballs = size;
         this.has_quarter = true;
-        this.model = model;
+        this.m = m;
         this.total = 0;
     }
 
     public void insertCoin(int coin)
     {
-    		total += coin;
+    		this.total += coin;
         if ( coin != 25 )
             this.has_quarter = false ;
     }
     
     public void turnCrank()
     {
-	    	if ( this.has_quarter && model == 1 && this.total >= 25 || 
-	    			this.total >= 50 && model == 3 || this.has_quarter && model == 2 && 
+
+	    	if ( this.has_quarter && m == Model.Model25 && this.total >= 25 || 
+	    			this.total >= 50 && m == Model.Model50Coin || this.has_quarter && m == Model.Model50Quarter && 
 	    			this.total >= 50 )
 	    	{
 	    		if ( this.num_gumballs > 0 )
@@ -41,7 +46,7 @@ public class GumballMachine
 	    	}
 	    	else 
 	    	{
-	    		if(model == 3)
+	    		if( m == Model.Model50Coin)
 	    		{
 	    			System.out.println( "Please insert a coin" ) ;
 	    		}
