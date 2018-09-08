@@ -5,3 +5,6 @@
 /SoldOutState.class
 /SoldState.class
 /State.class
+/Model.class
+/HasCoinState.class
+/HasState.class
