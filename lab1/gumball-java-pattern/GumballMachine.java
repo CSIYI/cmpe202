@@ -1,3 +1,4 @@
+//dummy test
 enum Model {
 	Model25, Model50Quarter, Model50Coin;
 }
